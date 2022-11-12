@@ -3,9 +3,9 @@ import "./App.css";
 import RollDice from "./RollDice";
 import CurrentValue from "./CurrentValue";
 import PlayerStats from "./PlayerStats";
-// import {gameOver} from './HandleWin'
+
 import CheckWinner from "./CheckWinner";
-// import Modal from './modal/Modal.js';
+
 import LandPage from "./LandPage";
 import styled from "styled-components";
 
@@ -190,7 +190,7 @@ function App() {
       {isLandingPage && <LandPage pageLanding={LandingPage} btnName />}
       {!isLandingPage && (
         <div className="App">
-          {/* <Modal setModal={setModal} modal={modal}/> */}
+          
             <h1>DiceGame </h1>
           <DivGameContainer >
             <DivPlayer >
