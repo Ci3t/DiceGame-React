@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 
 const Btn = styled.button`
-  width: 4em;
+  width: 8em;
   padding: 10px;
   font-family: 'Indie Flower', cursive;
   font-weight: bold;
@@ -11,6 +11,7 @@ const Btn = styled.button`
   background-color: #dc2f02;
   border-radius: 5px;
   border: 2px solid #370617;
+  cursor: pointer;
   /* margin-top: 4em; */
   margin-left: 55em;
   margin-right: auto;

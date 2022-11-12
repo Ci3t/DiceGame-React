@@ -19,6 +19,7 @@ const Btn = styled.button`
   background-color: #dc2f02;
   border-radius: 5px;
   border: 2px solid #370617;
+  cursor: pointer;
   @media all and (max-width:598px) {
     width: 99px;
   }
@@ -71,9 +72,9 @@ const DivGameContainer = styled.div`
 function App() {
   const [dice1, setDice1] = useState(1);
   const [dice2, setDice2] = useState(5);
+  const [activePlayer, setActivePlayer] = useState("Player One");
   const [modal, setModal] = useState(false);
   const [isLandingPage, setIsLandingPage] = useState(true);
-  const [activePlayer, setActivePlayer] = useState("Player One");
   const [current, setCurrent] = useState(0);
   const [playerOneScore, setPlayerOneScore] = useState(0);
   const [playerTwoScore, setPlayerTwoScore] = useState(0);
@@ -82,31 +83,44 @@ function App() {
     PlayerTwo: "Player Two",
     gameOver: false,
     isDisabled: false,
+    msg1:'Player One wins',
+    msg2:'Player Two wins',
   });
   const LandingPage = () => {
     setIsLandingPage((prevLand) => !prevLand);
   };
   const isWinner = () => {
-    if (playerOneScore > 100) {
+    if (playerOneScore > 100 ) {
+      isWinText()
       setGameInfo((prevGame) => {
         return {
           ...prevGame,
           gameOver: true,
           isDisabled: true,
+          PlayerOne:'You Lost',
+          PlayerTwo:'You Win',
+          
         };
       });
+      return (
 
-      return <h4> player two wins</h4>;
+        <h4> player Two wins</h4>
+      )
+      
+ 
     }
     if (playerOneScore === 100) {
+      <h4> player one wins</h4>;
       setGameInfo((prevGame) => {
         return {
           ...prevGame,
           gameOver: true,
           isDisabled: true,
+          PlayerOne:'You Win',
+          PlayerTwo:'You Lose',
         };
       });
-      return <h4> player one wins</h4>;
+      
     }
 
     if (playerTwoScore > 100) {
@@ -115,6 +129,8 @@ function App() {
           ...prevGame,
           gameOver: true,
           isDisabled: true,
+          PlayerOne:'You Win',
+          PlayerTwo:'You Lose',
         };
       });
       return <h4> player one wins</h4>;
@@ -124,11 +140,21 @@ function App() {
           ...prevGame,
           gameOver: true,
           isDisabled: true,
+          PlayerOne:'You Lose',
+          PlayerTwo:'You Win',
         };
       });
       return <h4> player two wins</h4>;
     }
   };
+
+  function isWinText() {
+    if (playerOneScore > 100) {
+      return <h4> player Two wins</h4>;
+  }else if (playerOneScore === 100){
+    return <h4> player One wins</h4>;
+  }
+  }
   const resetGame=()=> {
     window.location ="/"
   }
@@ -189,6 +215,7 @@ function App() {
                 setGameInfo={setGameInfo}
                 gameinfo={gameInfo.gameOver}
                 winner={isWinner}
+                isWin={isWinText}
                 player1Score={playerOneScore}
                 player2Score={playerTwoScore}
                 score={current}
