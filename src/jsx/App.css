@@ -1,0 +1,38 @@
+.App {
+  text-align: center;
+}
+.App h1{
+  margin:0.5em;
+  padding:0;
+  color: #202020;
+  
+  font-size: 30px;
+}
+body{
+  /* background-color: #03071e; */
+  background-image: url("/public/images/dices.jpg");
+  font-family: 'Indie Flower', cursive;
+}
+
+.dice-images {
+  display: flex;
+  flex-direction: column;
+
+}
+.dice-images img{
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5em;
+  border: 2px solid #d00000;
+
+}
+
+
+
+
+
+
+
+
+
+
