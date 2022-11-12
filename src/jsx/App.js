@@ -73,7 +73,7 @@ function App() {
   const [dice1, setDice1] = useState(1);
   const [dice2, setDice2] = useState(5);
   const [activePlayer, setActivePlayer] = useState("Player One");
-  const [modal, setModal] = useState(false);
+  
   const [isLandingPage, setIsLandingPage] = useState(true);
   const [current, setCurrent] = useState(0);
   const [playerOneScore, setPlayerOneScore] = useState(0);
